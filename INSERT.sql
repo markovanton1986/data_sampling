@@ -1,5 +1,5 @@
 INSERT INTO
-	artists(id, name)
+	artists(Artist_ID, Name)
 VALUES
 	(1, 'Юрий Антонов'),
 	(2, 'Михаил Боярский'),
@@ -8,7 +8,7 @@ VALUES
 
 
 INSERT INTO
-	genres(id, name)
+	genres(Genre_ID, Name)
 VALUES
     (1, 'Рок'),
     (2, 'Хип-Хоп'),
@@ -16,14 +16,14 @@ VALUES
 
 
 INSERT INTO
-	albums(id, name, releaseDate)
+	albums(Album_ID, Name, Year)
 VALUES
     (1, 'Есть только миг', '2023'),
     (2, 'Моя музыка', '2023'),
     (3, 'Высоко на небе', '2023');
 
 INSERT INTO
-	tracks(id, name, trackLength, id_album)
+	tracks(Track_ID, Name, Continuity, Album_ID)
 VALUES
     (1, 'Зрелость', 300, 1),
     (2, 'Радость', 200, 2),
@@ -33,7 +33,7 @@ VALUES
     (6, 'Работа', 360, 6);
 
 INSERT INTO
-	collections(id, name, release_year)
+	collections(Collection_ID, Name, Year)
 VALUES
     (1, 'Звук души', '2023'),
     (2, 'Крик моря', '2023'),
@@ -41,21 +41,21 @@ VALUES
     (4, 'Гармония звука', '2023');
 
 INSERT INTO
-    genres_artists(artist_id, genre_id)
+    genres_artists(Genre_Artist_ID, Artist_ID)
 VALUES
     (1, 1),
     (1, 2),
     (1, 3);
 
 INSERT INTO
-    albums_artists(artist_id, album_id)
+    albums_artists(Album_Artist_ID, Artist_ID)
 VALUES
     (1, 1),
     (1, 2),
     (1, 3);
 
 INSERT INTO
-    tracks_collections(collection_id, track_id)
+    tracks_collections(Track_Collection_ID, Collection_ID)
 VALUES
     (1, 1),
     (1, 2),
