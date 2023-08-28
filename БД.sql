@@ -1,39 +1,38 @@
 CREATE TABLE IF NOT EXISTS genres (
-	id serial PRIMARY KEY, 
-	genre_name varchar(100) NOT NULL UNIQUE);
+	Genre_ID serial PRIMARY KEY,
+	Name varchar(100) NOT NULL UNIQUE);
 
 CREATE TABLE IF NOT EXISTS artists (
-	id serial PRIMARY KEY, 
-	artist_name varchar(100) NOT NULL UNIQUE, 
-	artist_alias varchar(100) UNIQUE);
+	Artist_ID serial PRIMARY KEY,
+	Name varchar(100) NOT NULL UNIQUE);
 	
 CREATE TABLE IF NOT EXISTS genres_artists (
-	genres_id integer REFERENCES genres(id), 
-	artists_id integer REFERENCES artists(id), 
-	CONSTRAINT genres_artists_pk PRIMARY KEY (genres_id, artists_id));	
+	Genre_ID integer REFERENCES genres(Genre_ID),
+	Artist_ID integer REFERENCES artists(Artist_ID),
+	CONSTRAINT genres_artists_pk PRIMARY KEY (Genre_ID, Artist_ID));
 
 CREATE TABLE IF NOT EXISTS albums (
-	id serial PRIMARY KEY, 
-	album_name varchar(100) NOT NULL, 
-	album_date integer NOT NULL);
+	Album_ID serial PRIMARY KEY,
+	Name varchar(100) NOT NULL,
+	Year integer NOT NULL);
 	
 CREATE TABLE IF NOT EXISTS albums_artists (
-	albums_id integer REFERENCES albums(id), 
-	artists_id integer REFERENCES artists(id), 
-	CONSTRAINT albums_artists_pk PRIMARY KEY (albums_id, artists_id));
+	Album_ID integer REFERENCES albums(Album_ID),
+	Artist_ID integer REFERENCES artists(Artist_ID),
+	CONSTRAINT albums_artists_pk PRIMARY KEY (Albums_ID, Artist_ID));
 
 CREATE TABLE IF NOT EXISTS tracks (
-	id serial PRIMARY KEY, 
-	track_name varchar(100) NOT NULL, 
-	track_duration integer NOT NULL, 
-	album_id integer REFERENCES albums(id));
+	Track_ID serial PRIMARY KEY,
+	Name varchar(100) NOT NULL,
+	Continuity integer NOT NULL,
+	Album_ID integer REFERENCES albums(Album_ID));
 
 CREATE TABLE IF NOT EXISTS collections (
-	id serial PRIMARY KEY, 
-	collection_name varchar(100) NOT NULL, 
-	collection_date integer NOT NULL);
+	Collection_ID serial PRIMARY KEY,
+	Name varchar(100) NOT NULL,
+	Year integer NOT NULL);
 
 CREATE TABLE IF NOT EXISTS tracks_collections (
-	track_id integer REFERENCES tracks(id), 
-	collection_id integer REFERENCES collections(id), 
-	CONSTRAINT track_collection_pk PRIMARY KEY (track_id, collection_id));
+	Track_ID integer REFERENCES tracks(Track_ID),
+	Collection_ID integer REFERENCES collections(Collection_ID),
+	CONSTRAINT track_collection_pk PRIMARY KEY (Track_ID, Collection_ID));
