@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS albums (
 CREATE TABLE IF NOT EXISTS albums_artists (
 	Album_ID integer REFERENCES albums(Album_ID),
 	Artist_ID integer REFERENCES artists(Artist_ID),
-	CONSTRAINT albums_artists_pk PRIMARY KEY (Albums_ID, Artist_ID));
+	CONSTRAINT albums_artists_pk PRIMARY KEY (Album_ID, Artist_ID));
 
 CREATE TABLE IF NOT EXISTS tracks (
 	Track_ID serial PRIMARY KEY,
