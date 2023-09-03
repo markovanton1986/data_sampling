@@ -41,21 +41,21 @@ VALUES
     (4, 'Гармония звука', '2023');
 
 INSERT INTO
-    genres_artists(Genre_Artist_ID, Artist_ID)
+    genres_artists(Genre_ID, Artist_ID)
 VALUES
     (1, 1),
     (1, 2),
     (1, 3);
 
 INSERT INTO
-    albums_artists(Album_Artist_ID, Artist_ID)
+    albums_artists(Album_ID, Artist_ID)
 VALUES
     (1, 1),
     (1, 2),
     (1, 3);
 
 INSERT INTO
-    tracks_collections(Track_Collection_ID, Collection_ID)
+    tracks_collections(Track_ID, Collection_ID)
 VALUES
     (1, 1),
     (1, 2),
