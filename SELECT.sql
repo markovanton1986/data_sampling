@@ -47,7 +47,7 @@ WHERE Year >= '2019' AND Year <= '2020'
 
 --Средняя продолжительность треков по каждому альбому
 
-SELECT Name(Album_ID), avg(Continuity)
+SELECT albums.Name, avg(Continuity)
 FROM tracks
 JOIN albums ON tracks.Album_ID = albums.Album_ID
 GROUP BY Name(Album_ID)
@@ -56,7 +56,7 @@ GROUP BY Name(Album_ID)
 
 SELECT DISTINCT Name
 FROM artists
-WHERE Name NOT IN (
+WHERE Artist_ID NOT IN (
 	SELECT artists.Name FROM artists
 	JOIN albums_artists  ON artists.Artist_ID = albums_artists.Artist_ID
 	JOIN albums ON albums.Album_ID = albums_artists.Album_ID
@@ -64,7 +64,7 @@ WHERE Name NOT IN (
 
 --Названия сборников, в которых присутствует конкретный исполнитель 'Юрий Антонов'
 
-SELECT Name(Collection_ID)
+SELECT collection.Name
 FROM collections
 JOIN tracks_collections on tracks_collections.Collection_ID = collections.Collection_ID
 JOIN tracks ON tracks_collections.Track_ID = tracks.Track_ID
